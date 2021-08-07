@@ -1,18 +1,16 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
-import { SendWelcomeUserEmailCommand } from "../../../modules/Notifications/application/SendWelcomeUserEmail/SendWelcomeUserEmailCommand";
-import { WelcomeUserEmailError } from "../../../modules/Notifications/domain/WelcomeUserEmailError";
-import { CommandBus } from "../../../modules/Shared/domain/CommandBus";
+import { SendWelcomeUserEmailCommand } from "../../modules/Notifications/application/SendWelcomeUserEmail/SendWelcomeUserEmailCommand";
+import { WelcomeUserEmailError } from "../../modules/Notifications/domain/WelcomeUserEmailError";
+import { CommandBus } from "../../modules/Shared/domain/CommandBus";
 import { Controller } from "./Controller";
 
 export class SendWelcomeUserEmailController implements Controller {
     constructor(private commandBus: CommandBus) { }
 
     async run(req: Request, res: Response) {
-        const from: string = req.body.from;
-        const to: string = req.body.to;
-        const subject: string = req.body.subject;
-        const body: string = req.body.body;
+        const { from, to, subject, body } = req.body;
+        
         const sendWelcomeUserEmailCommand = new SendWelcomeUserEmailCommand({ from, to, subject, body });
 
         try {
