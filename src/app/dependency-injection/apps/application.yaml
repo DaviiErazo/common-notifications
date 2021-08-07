@@ -1,0 +1,5 @@
+services:
+
+  Notification.controllers.StatusGetController:
+    class: ../../Notification/controllers/StatusGetController
+    arguments: []
