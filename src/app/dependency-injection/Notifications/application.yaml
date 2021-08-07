@@ -1,0 +1,14 @@
+services:
+  Notification.EmailSender:
+    class: ../../../modules/Notifications/infrastructure/FakeEmailSender
+    arguments: []
+  
+  Notification.SendWelcomeUserEmail:
+    class: ../../../modules/Notifications/application/SendWelcomeUserEmail/SendWelcomeUserEmail
+    arguments: ["@Notification.EmailSender"]
+
+  Notification.SendWelcomeUserEmailCommandHandler:
+    class: ../../../modules/Notifications/application/SendWelcomeUserEmail/SendWelcomeUserEmailCommandHandler
+    arguments: ['@Notification.SendWelcomeUserEmail']
+    tags:
+      - { name: 'commandHandler' }

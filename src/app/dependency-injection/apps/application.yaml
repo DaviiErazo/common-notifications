@@ -1,5 +1,9 @@
 services:
 
+  Notification.controllers.SendWelcomeUserEmailController:
+    class: ../../Notification/controllers/SendWelcomeUserEmailController
+    arguments: ["@Shared.CommandBus"]
+
   Notification.controllers.StatusGetController:
     class: ../../Notification/controllers/StatusGetController
     arguments: []
