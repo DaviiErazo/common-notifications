@@ -12,8 +12,8 @@ export class SendWelcomeUserEmailCommandHandler implements CommandHandler<SendWe
     }
 
     async handle(command: SendWelcomeUserEmailCommand): Promise<void> {
-        const from = new EmailAddress(command.from);
-        const to = new EmailAddress(command.to);
+        const from = EmailAddress.create(command.from);
+        const to = EmailAddress.create(command.to);
         const subject = command.subject;
         const body = command.body;
 

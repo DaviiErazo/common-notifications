@@ -1,3 +1,5 @@
+import { InvalidArgumentError } from "./InvalidArgumentError";
+
 export abstract class StringValueObject {
   readonly value: string;
 
@@ -7,5 +9,11 @@ export abstract class StringValueObject {
 
   toString(): string {
     return this.value;
+  }
+
+  public static againstNullOrUndefined(name: string, value: string): void {
+    if (value === null || value === undefined) {
+      throw new InvalidArgumentError(`The ${name} <${value}> is invalid.`);
+    }
   }
 }
