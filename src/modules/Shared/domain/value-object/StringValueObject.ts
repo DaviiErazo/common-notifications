@@ -13,7 +13,7 @@ export abstract class StringValueObject {
 
   public static againstNullOrUndefined(name: string, value: string): void {
     if (value === null || value === undefined) {
-      throw new InvalidArgumentError(`The ${name} <${value}> is invalid.`);
+      throw new InvalidArgumentError(`The ${name} <${value}> is invalid`);
     }
   }
 }

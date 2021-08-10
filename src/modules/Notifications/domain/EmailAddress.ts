@@ -8,7 +8,7 @@ export class EmailAddress extends StringValueObject {
 
     private static ensureEmailIsValid(email: string): void {
         if (this.isInvalidEmail(email)) {
-            throw new InvalidArgumentError(`The Email <${email}> is invalid`);
+            throw new InvalidArgumentError(`The email <${email}> is invalid`);
         }
     }
 

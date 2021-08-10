@@ -28,7 +28,6 @@ export class Email {
 
     equals(otherEmail: Email): boolean {
         return (
-            this.id.value === otherEmail.id.value &&
             this.from.value === otherEmail.from.value &&
             this.to.value === otherEmail.to.value &&
             this.subject === otherEmail.subject &&
