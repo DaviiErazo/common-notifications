@@ -1,7 +1,7 @@
 import * as faker from 'faker';
 
 export class MotherCreator {
-  static random(): Faker.FakerStatic {
+  static random(): faker.FakerStatic {
     return faker;
   }
 }
